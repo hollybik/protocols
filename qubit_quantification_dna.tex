@@ -1,0 +1,58 @@
+\documentclass[letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[mediumspace,mediumqspace,squaren,textstyle]{SIunits}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
+
+\title{Qubit Quantification of DNA}
+
+\author{Eisen Lab}
+
+\date{April 4, 2014}
+
+\begin{document}
+\maketitle
+
+
+\section{Introduction}
+
+The protocol uses a Qubit Fluorometer (Invitrogen) to quantify DNA, e.g. from environmental DNA extractions or purfied PCR products. The Qubit kit is stored at 4$^{\circ}$C (Quant-iT dsDNA Assay Kit, High Sensitivity, 1000 assays. Invitrogen product no. Q33120).
+
+\section{Protocol}
+
+\subsection{Prepare working solution}
+
+Prepare a master mix of working solution by diluting Florescent Dye (Quant-iT dsDNA HS reagent) to Quant-iT dsDNA HS buffer at a final ratio of (1:199): add \unit{1}{\micro\litre} of dye into every \unit{198}{\micro\litre} of Qubit buffer. Ensure that all solutions are fully liquid before mixing; the Florescent Dye may crystallize during storage at 4$^{\circ}$C.
+
+
+\subsection{Calibrate Qubit}
+
+Before quantifying DNA, the Qubit machine should be calibrated using standard solutions. However, if the machine has been recently calibrated, select "use last calibration" when prompted on screen.
+
+\subsection{Prepare DNA samples}
+
+Prepare sample solution by adding \unit{1-10}{\micro\litre} of each DNA sample to working solution (\unit{190-199}{\micro\litre}, respectively). Each sample should be prepared in a separate \unit{0.3}{\milli\litre} Qubit tube (Qubit assay tubes, Invitrogen product no. Q32856), where the final volume of the prepared sample solution is \unit{200}{\micro\litre} (DNA sample mixed with working solution).
+
+\subsection{Measure Sample Concentration}
+
+Measure the DNA concentration of each sample, as follows:
+
+\begin{itemize}
+\item On the Qubit screen prompt, chose "Quant-it dsDNA, HS" (high sensitivity DNA quantification)
+\item Choose "use last calibration"
+\item Insert sample into slot, close plastic cover, and press "GO" button
+\item Select "calculate the sample concentration" and then choose the input sample volume used in Step 2.3
+\item If the Qubit cannot quantify DNA ("sample concentration too low"), prepare a new sample solution by increasing the amount of DNA diluted into the working solution (Step 2.3, for example, use \unit{5}{\micro\litre} instead of \unit{1}{\micro\litre} of your DNA sample). Re-measure new sample solution.
+\end{itemize}
+
+
+
+\end{document}

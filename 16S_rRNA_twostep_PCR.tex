@@ -1,0 +1,147 @@
+\documentclass[letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[mediumspace,mediumqspace,squaren,textstyle]{SIunits}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
+\usepackage{float}
+\restylefloat{table}
+\usepackage{parskip}
+
+\title{16S rRNA Amplicon Library Construction}
+
+
+\author{Eisen Lab}
+
+\date{April 3, 2014}
+
+\begin{document}
+\maketitle
+
+
+\section{Introduction}
+
+This protocol assumes that you have extracted DNA and quantified it using the Qubit. The reagents used in this protocol are supplied by Kapa Biosystems (Kapa HotStart Taq and associated reagents; product number XXXXX).
+
+\section{Protocol}
+
+
+\subsection{PCR-A}
+
+The function of this PCR is to amplify the 16S rRNA gene from any template DNA present in the sample (bacteria or archaea) and tag amplicons from each sample with a unique dual-index barcode sequence. There are only 10 rounds of initial PCR, in order to limit chimera formation. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|r}
+Reagent & Volume (\unit{}{\micro\litre}) \\\hline
+Template DNA & 1 \\
+5x Buffer A & 5 \\
+10mM dNTPs & 0.5 \\
+10\unit{}{\micro}M Forward primer & 2.5 \\
+10\unit{}{\micro}M Reverse primer & 2.5 \\
+Taq & 0.2 \\
+Water & 13.3
+\end{tabular}
+\end{table}
+
+
+Make up a master mix containing everything except the primers and the DNA. This allows for more accurate measurements of small volumes and reduces variability between tubes. To do this, take the number of samples \textit{n} and make up a mix for \textit{n+3} reactions. One of these will be a negative control (1\unit{}{\micro}l water instead of DNA), one will be a positive control (DNA that we know will amplify), and one is to account for loss due to pipetting. Put 19\unit{}{\micro}l of master mix into each tube. Add DNA and primers to reach 25\unit{}{\micro}l. Mix the samples by flicking the tubes or using a vortex, then spin down briefly.
+
+After all reactions have been prepared, run the samples using PCR program "16SA" (this should already be saved in most of the lab machines).
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|r}
+Temperature ($^{\circ}$C) & Time (mm:ss) \\\hline
+95$^{\circ}$C  & 2:00 \\
+\hline
+95$^{\circ}$C & 0:15 \\
+52$^{\circ}$C & 0:30 \\
+72$^{\circ}$C & 1:30 \\
+Repeat & for 10 cycles \\
+\hline
+72$^{\circ}$C &3:00 \\
+4$^{\circ}$C & forever
+\end{tabular}
+\end{table}
+
+The reaction can be placed at -20$^{\circ}$C at this stage if needed.
+
+
+\subsection{Ampure Bead Purification of PCR-A}
+
+The purpose of this step is to clean up the amplified DNA and remove leftover PCR reagents such as free nucleotides, primers, and the Taq polymerase. We will be using Ampure magnetic beads that bind to DNA (XXX company; product number XXXX). Include the negative control in this purfication step. Steps in \textbf{BOLD} take place in the magnetic adaptor:
+
+\begin{enumerate}
+\item Add 1 volume of Ampure beads (at room temperature and vortexed) to 1 volume of sample (25\unit{}{\micro}l)
+\item Pipette up and down 10 times
+\item Let sit at room temperature for 10 minutes
+\item \textbf{Put into the magnetic adaptor for 2 minutes (don't remove until step 8})
+\item \textbf{Gently remove liquid}
+\item \textbf{Wash twice with 200\unit{}{\micro}l 70\% ethanol (mix this up fresh each week); Don't disturb beads}
+\item \textbf{Air dry for 10 minutes}
+\item Add 22\unit{}{\micro}l of TE buffer, mix well 
+\item \textbf{Put back into magnetic adaptor for 5 minutes}
+\item \textbf{Pipette 20\unit{}{\micro}l into new tube}
+\end{enumerate}
+
+
+The reaction can be placed at -20$^{\circ}$C at this stage if needed.
+
+\subsection{PCR-B}
+
+As with PCR-A, make up a master mix of \textit{n+3}, but this time include the primers. Put 15\unit{}{\micro}l into each tube and add 10\unit{}{\micro}l of DNA from PCR-A.  The negative control here will be the negative control from PCR-A. The total volume should again be 25\unit{}{\micro}l.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|r}
+Reagent & Volume (\unit{}{\micro\litre}) \\\hline
+DNA from PCR-A & 10 \\
+5x Buffer A & 5 \\
+10mM dNTPs & 0.5 \\
+10\unit{}{\micro}M primer mix & 5 \\
+Taq & 0.2 \\
+Water & 4.3
+\end{tabular}
+\end{table}
+
+After preparing all reactions, run the samples using the "16SB" PCR program (this should already be saved in most of the lab machines).
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|r}
+Temperature ($^{\circ}$C) & Time (mm:ss) \\\hline
+95$^{\circ}$C  & 2:00 \\
+\hline
+95$^{\circ}$C & 0:15 \\
+65$^{\circ}$C & 0:30 \\
+72$^{\circ}$C & 1:30 \\
+Repeat & for 18 cycles \\
+\hline
+72$^{\circ}$C &3:00 \\
+4$^{\circ}$C & forever
+\end{tabular}
+\end{table}
+
+The reaction can be placed at -20$^{\circ}$C at this stage if needed.
+
+
+\subsection{Confirm PCR via Gel Electrophoresis}
+Confirm PCR fragment size on a 1\% agarose gel. Use 5\unit{}{\micro}l of sample. The 16S rRNA fragment should be around 380bp and clearly visible. Be sure to check positive and negative controls.
+
+\subsection{Ampure Bead Purification of PCR-B}
+
+Cleanup PCR reactions that were positive in Section 2.4. Follow the same Ampure protocol as Section 2.2, but use 20\unit{}{\micro}l of beads (assuming 5\unit{}{\micro}l of sample went to gel confirmation), and elute ALL samples using 30\unit{}{\micro}l TE buffer, pipetting 25\unit{}{\micro}l into a new tube.
+
+\subsection{Quantify Purified DNA}
+Quantify the samples using the Qubit (see separate protocol). After quantification, freeze purified PCR products at -20$^{\circ}$C.
+
+
+\end{document}

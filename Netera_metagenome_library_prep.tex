@@ -1,0 +1,182 @@
+\documentclass[letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[mediumspace,mediumqspace,squaren,textstyle]{SIunits}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
+\usepackage{float}
+\restylefloat{table}
+\usepackage{parskip}
+
+\title{Nextera XT Metagenome Library Preparation}
+
+
+\author{Eisen Lab}
+
+\date{April 3, 2014}
+
+\begin{document}
+\maketitle
+
+
+\section{Introduction}
+
+This protocol assumes that you have extracted DNA and quantified it using the Qubit. The kits and reagents used in this protocol are supplied by Illumina (Nextera DNA Sample Preparation Kit and Nextera Index Kit).
+
+
+\section{Protocol}
+
+
+\subsection{Tagmentation of Input Genomic DNA}
+
+The function of this “tagmentation” step is to fragment the template DNA and tag the fragments with adapters.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|r}
+Thaw & From \\\hline
+ATM & -20$^{\circ}$C \\
+TD & -20$^{\circ}$C \\
+NT & Room Temp \\
+\end{tabular}
+\end{table}
+
+Using 8-strip PCR tubes, add the following to each tube:
+
+\begin{enumerate}
+\item 5\unit{}{\micro}l input DNA (1000 pg) per tube
+\item 15\unit{}{\micro}l of master mix (containing 10\unit{}{\micro}l of TD reagent per 5\unit{}{\micro}l of ATM reagent). Use the repeat pipette for this step.
+\end{enumerate}
+
+For step 2 above, prepare a master mix for large numbers of samples, as follows:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c}
+\hline
+Premix for samples & 8 & 24 & 48 & 72 \\\hline
+TD (\unit{}{\micro}l) & 84 & 260 & 500 & 750 \\
+ATM (\unit{}{\micro}l) & 42 & 130 & 250 & 375 \\
+\hline
+\end{tabular}
+\end{table}
+
+After combining master mix and DNA, mix well and spin briefly. Incubate at 55$^{\circ}$C for 5 minutes, then hold at 10$^{\circ}$C.
+
+\subsection{Neutralize NTA}
+
+Using the repeat pipette, add 5\unit{}{\micro}l of NT solution. Mix well, and spin briefly. Incubate at room temperature for 5 minutes, then hold at 10$^{\circ}$C.
+
+\subsection{PCR Amplification}
+
+The purpose of this step is to add the Illumina sequencing adapters and indexes to genomic DNA fragments via PCR. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|r}
+Thaw & From \\\hline
+NPM & -20$^{\circ}$C \\
+Index 1 & -20$^{\circ}$C \\
+Index 2 & -20$^{\circ}$C \\
+\end{tabular}
+\end{table}
+
+Using the repeat pipette, add 15\unit{}{\micro}l NPM solution, 5\unit{}{\micro}l of Index 1 and 5\unit{}{\micro}l of Index 2 to each tube. Mix well, and spin briefly. Then run the samples using the following PCR conditions:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|r}
+Temperature ($^{\circ}$C) & Time (mm:ss) \\\hline
+72$^{\circ}$C  & 3:00 \\
+95$^{\circ}$C & 0:30 \\
+\hline
+95$^{\circ}$C & 0:10 \\
+55$^{\circ}$C & 0:30 \\
+72$^{\circ}$C & 0:30 \\
+Repeat & for 11 cycles \\
+\hline
+72$^{\circ}$C & 5:00 \\
+10$^{\circ}$C & hold
+\end{tabular}
+\end{table}
+
+\subsection{PCR Cleanup}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|r}
+Thaw & From \\\hline
+RSB & -20$^{\circ}$C \\
+AMPure beads & 4$^{\circ}$C \\
+80\% EtOh & (prepared freshly) \\
+\end{tabular}
+\end{table}
+
+The purpose of this step is to clean up the amplified DNA and remove leftover PCR reagents such as free nucleotides, primers, and polymerase. We will be using Ampure magnetic beads that bind to DNA (Agricourt Ampure XP beads; product number A63880). Include the negative control in this purfication step. Steps in \textbf{BOLD} take place in the magnetic adaptor:
+
+\begin{enumerate}
+\item Using the multichannel pipette, add 30\unit{}{\micro}l AMPure beads (0.8:1) per tube.
+\item Mix well and incubate at room temperature for 5 minutes
+\item \textbf{Place on the magnetic stand for 2 minutes, then pipet and discard the supernatant.}
+\item \textbf{Wash pellet twice with 200\unit{}{\micro}l 80\% EtOh}
+\item Dry completely for 15 minutes
+\item Using a regular pipet, add 52.5\unit{}{\micro}l RSB (make sure solution is dissolved completely). Mix well, spin briefly and incubate at room temperature for 2 minutes.
+\item \textbf{Place on magnetic adaptor for 2 minutes.}
+\item \textbf{Transfer 50\unit{}{\micro}l supernatant to a new PCR tube.} At this stage, purified PCR products can be stored at -20$^{\circ}$C.
+\end{enumerate}
+
+\subsection{Library Normalization}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|r}
+Thaw & From \\\hline
+LNA1 & -20$^{\circ}$C \\
+LNB1 & 4$^{\circ}$C \\
+LNW1 & 4$^{\circ}$C \\
+LNS1 & Room temperature \\
+0.1N NaOH & (freshly prepared) \\
+\end{tabular}
+\end{table}
+
+Calculate and prepare the required amount of LNAB solution in the following ratio:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c}
+\hline
+LNAB for number of samples & 24 & 48 & 72 & 96 \\\hline
+LNA1 (\unit{}{\micro}l) & 896 & 1760 & 3520 & 4400 \\
+LNB1 (\unit{}{\micro}l) & 176 & 320 & 640 & 800 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{enumerate}
+\item Using clean PCR tubes, add 45\unit{}{\micro}l of prepared LNAB solution to each tube.
+\item Using a multichannel pipet, transfer 20\unit{}{\micro}l of the purified PCR Products (from previous PCR cleanup step) to the assigned tube.
+\item Shake tubes at 1800 RPM for 30 seconds
+\item LNW1 wash step. 
+	\begin{enumerate}
+	\item Spin tubes briefly, place on magnetic adaptor for 2 minutes and then discard supernatant. 
+    \item Using the multichannel pipet, wash the pellet with 45\unit{}{\micro}l LNW1 solution. 
+    \item Shake tubes at 1800 RPM for 5 minutes.
+    \item Spin briefly. Place on magnetic adaptor for 2 minutes and then discard supernatant.
+    \item Repeat LNW1 wash steps. At the end of the second wash, dry samples for 5 minutes.
+    \end{enumerate}
+\item Add \unit{}{\micro}l of 0.1N NaOH to each tube. Shake at 1800 RPM for 5 minutes. While waiting, Add 30\unit{}{\micro}l LNS1 solution to clean PCR tubes.
+\item Place shaken samples on magnetic adaptor for 2 minutes. Afterwards, transfer 30\unit{}{\micro}l of the supernatant to the new PCR tubes containing LNS1 solution.
+\item Spin at 1000g for 1 minute
+\item At this stage, samples can be kept at -20$^{\circ}$C. qPCR can also be used at this stage to check the quantity of the library.
+\end{enumerate}
+
+Samples should now be submitted to the UC Davis core facility for pooling and loading onto the Illumina platform.
+
+\end{document}
